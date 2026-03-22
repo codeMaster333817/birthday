@@ -15,7 +15,6 @@ margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
 overflow:hidden;
-height:100vh;
 }
 
 /* title */
@@ -29,28 +28,30 @@ margin-top:5px;
 .container{
 position:relative;
 width:100%;
-height:90vh; /* important */
+height:88vh;
 }
 
-/* images */
+/* images SAME SIZE */
 .sticker{
 position:absolute;
-width:80px;
-height:80px;
+width:95px;
+height:95px;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* 💥 PERFECT MOBILE SCATTERED */
-.s1{ top:60px; left:10px; transform:rotate(-10deg); }
-.s2{ top:120px; left:110px; transform:rotate(8deg); }
-.s3{ top:60px; right:10px; transform:rotate(-6deg); }
-.s4{ top:180px; right:30px; transform:rotate(10deg); }
-.s5{ top:240px; left:20px; transform:rotate(-5deg); }
-.s6{ top:300px; right:40px; transform:rotate(6deg); }
-.s7{ top:200px; left:50%; transform:translateX(-50%) rotate(-4deg); }
+/* 💥 SMART COMPACT LAYOUT */
+.s1{ top:50px; left:10px; transform:rotate(-8deg); }
+.s2{ top:110px; left:110px; transform:rotate(6deg); }
+.s3{ top:50px; right:10px; transform:rotate(-6deg); }
+
+.s4{ top:170px; left:20px; transform:rotate(8deg); }
+.s5{ top:210px; right:20px; transform:rotate(-7deg); }
+
+.s6{ top:260px; left:100px; transform:rotate(5deg); }
+.s7{ top:180px; left:50%; transform:translateX(-50%) rotate(-4deg); }
 
 /* popup */
 .popup{
