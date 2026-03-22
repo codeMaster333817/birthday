@@ -10,8 +10,15 @@
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden; /* ❌ no scroll */
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
 }
@@ -19,33 +26,35 @@ font-family:'Kalam', cursive;
 /* title */
 .title{
 text-align:center;
-font-size:24px;
-padding:10px 0;
+font-size:22px;
+height:8vh;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-/* 🔥 FLEX FIX */
+/* 🔥 FIXED CONTAINER */
 .container{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-align-content:space-between;
-height:80vh; /* FULL SPACE USE */
-padding:10px;
+align-content:space-around; /* gap remove */
+height:84vh;
+padding:5px;
 }
 
-/* images */
+/* 🔥 IMAGE FIX */
 .sticker{
 width:30%;
-height:100px;
-margin:8px;
+height:22vh;   /* 🔥 screen ke hisab se auto fit */
+margin:5px;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
-transition:0.3s;
 }
 
-/* tedha look */
+/* tedi medi look */
 .sticker:nth-child(1){ transform:rotate(-8deg); }
 .sticker:nth-child(2){ transform:rotate(6deg); }
 .sticker:nth-child(3){ transform:rotate(-5deg); }
@@ -53,6 +62,24 @@ transition:0.3s;
 .sticker:nth-child(5){ transform:rotate(-6deg); }
 .sticker:nth-child(6){ transform:rotate(5deg); }
 .sticker:nth-child(7){ transform:rotate(-4deg); }
+
+/* buttons */
+.nav{
+height:8vh;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+}
+
+button{
+padding:8px 18px;
+border:none;
+background:black;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
 
 /* popup */
 .popup{
@@ -69,39 +96,11 @@ justify-content:center;
 
 .popup-box{
 background:white;
-padding:20px;
+padding:18px;
 border-radius:10px;
-font-size:16px;
-width:250px;
+font-size:15px;
+width:240px;
 text-align:center;
-}
-
-/* 🔥 BUTTON BELOW IMAGES */
-.nav{
-text-align:center;
-margin-bottom:10px;
-}
-
-button{
-padding:8px 20px;
-margin:5px;
-border:none;
-background:black;
-color:white;
-border-radius:8px;
-}
-
-/* symbols */
-.symbol{
-position:absolute;
-font-size:14px;
-opacity:0.5;
-animation:float 5s linear infinite;
-}
-
-@keyframes float{
-0%{ transform:translateY(0);}
-100%{ transform:translateY(-30px);}
 }
 
 </style>
@@ -197,7 +196,6 @@ img.className="sticker"
 img.onclick=()=>showPopup(msg)
 container.appendChild(img)
 })
-
 }
 
 function showPopup(msg){
