@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Vibe</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
@@ -11,27 +14,29 @@ body{
 margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
+overflow-x:hidden;
 }
 
 /* title */
 .title{
 text-align:center;
-font-size:40px;
+font-size:38px;
 margin-top:15px;
 }
 
-/* container GRID */
+/* container */
 .container{
 display:grid;
-grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 gap:20px;
 padding:20px;
+min-height:100vh;
 }
 
 /* images */
 .sticker{
 width:100%;
-height:120px;
+height:140px;
 object-fit:cover;
 border-radius:15px;
 cursor:pointer;
@@ -68,7 +73,7 @@ text-align:center;
 /* buttons */
 .nav{
 text-align:center;
-margin:15px;
+margin:10px;
 }
 
 button{
@@ -119,6 +124,7 @@ let page=0
 
 let messages=[
 
+// PAGE 1
 [
 "Tu mila to sab change ho gaya 🙂",
 "Tu special hai 💖",
@@ -129,6 +135,7 @@ let messages=[
 "Tu important hai ❤️"
 ],
 
+// PAGE 2
 [
 "Sach bolu 😏",
 "Tu best friend se zyada hai 💭",
@@ -139,6 +146,7 @@ let messages=[
 "Without saying 🫶"
 ],
 
+// PAGE 3
 [
 "Aaj tera din hai 🎂",
 "21 saal ka ho gaya 🎉",
@@ -152,6 +160,8 @@ let messages=[
 ]
 
 let images=[
+
+// PAGE 1
 [
 "https://picsum.photos/300?11",
 "https://picsum.photos/300?12",
@@ -161,6 +171,8 @@ let images=[
 "https://picsum.photos/300?16",
 "https://picsum.photos/300?17"
 ],
+
+// PAGE 2
 [
 "https://picsum.photos/300?21",
 "https://picsum.photos/300?22",
@@ -170,6 +182,8 @@ let images=[
 "https://picsum.photos/300?26",
 "https://picsum.photos/300?27"
 ],
+
+// PAGE 3
 [
 "https://picsum.photos/300?31",
 "https://picsum.photos/300?32",
@@ -179,6 +193,7 @@ let images=[
 "https://picsum.photos/300?36",
 "https://picsum.photos/300?37"
 ]
+
 ]
 
 function loadPage(){
@@ -224,7 +239,7 @@ loadPage()
 }
 }
 
-/* symbols */
+/* ✨ floating symbols */
 function addSymbols(){
 for(let i=0;i<10;i++){
 let s=document.createElement("div")
