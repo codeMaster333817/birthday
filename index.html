@@ -14,44 +14,45 @@ body{
 margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
-overflow:hidden;
 }
 
 /* title */
 .title{
 text-align:center;
-font-size:26px;
-margin-top:8px;
+font-size:24px;
+padding:10px 0;
 }
 
-/* container FULL HEIGHT */
+/* 🔥 FLEX FIX */
 .container{
-position:relative;
-width:100%;
-height:92vh;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-content:space-between;
+height:80vh; /* FULL SPACE USE */
+padding:10px;
 }
 
 /* images */
 .sticker{
-position:absolute;
-width:95px;
-height:95px;
+width:30%;
+height:100px;
+margin:8px;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
+transition:0.3s;
 }
 
-/* 💥 FULL SCREEN SPREAD */
-.s1{ top:60px; left:15px; transform:rotate(-8deg); }
-.s2{ top:130px; left:120px; transform:rotate(6deg); }
-.s3{ top:70px; right:15px; transform:rotate(-6deg); }
-
-.s4{ top:240px; left:25px; transform:rotate(8deg); }
-.s5{ top:300px; right:25px; transform:rotate(-7deg); }
-
-.s6{ top:380px; left:120px; transform:rotate(5deg); }
-.s7{ top:460px; left:50%; transform:translateX(-50%) rotate(-4deg); }
+/* tedha look */
+.sticker:nth-child(1){ transform:rotate(-8deg); }
+.sticker:nth-child(2){ transform:rotate(6deg); }
+.sticker:nth-child(3){ transform:rotate(-5deg); }
+.sticker:nth-child(4){ transform:rotate(7deg); }
+.sticker:nth-child(5){ transform:rotate(-6deg); }
+.sticker:nth-child(6){ transform:rotate(5deg); }
+.sticker:nth-child(7){ transform:rotate(-4deg); }
 
 /* popup */
 .popup{
@@ -71,25 +72,22 @@ background:white;
 padding:20px;
 border-radius:10px;
 font-size:16px;
-width:260px;
+width:250px;
 text-align:center;
 }
 
-/* buttons (UP SHIFTED) */
+/* 🔥 BUTTON BELOW IMAGES */
 .nav{
-position:absolute;
-bottom:15px;
-width:100%;
 text-align:center;
+margin-bottom:10px;
 }
 
 button{
-padding:8px 18px;
+padding:8px 20px;
 margin:5px;
 border:none;
 background:black;
 color:white;
-cursor:pointer;
 border-radius:8px;
 }
 
@@ -188,8 +186,6 @@ let images=[
 ]
 ]
 
-let positions=["s1","s2","s3","s4","s5","s6","s7"]
-
 function loadPage(){
 let container=document.getElementById("container")
 container.innerHTML=""
@@ -197,12 +193,11 @@ container.innerHTML=""
 messages[page].forEach((msg,i)=>{
 let img=document.createElement("img")
 img.src=images[page][i]
-img.className="sticker "+positions[i]
+img.className="sticker"
 img.onclick=()=>showPopup(msg)
 container.appendChild(img)
 })
 
-addSymbols()
 }
 
 function showPopup(msg){
@@ -221,20 +216,6 @@ if(page<2){ page++; loadPage(); }
 
 function prevPage(){
 if(page>0){ page--; loadPage(); }
-}
-
-function addSymbols(){
-let container=document.getElementById("container")
-let icons=["✨","💖","🌙","⭐"]
-
-for(let i=0;i<8;i++){
-let s=document.createElement("div")
-s.className="symbol"
-s.innerHTML=icons[Math.floor(Math.random()*icons.length)]
-s.style.left=Math.random()*100+"%"
-s.style.top=Math.random()*90+"%"
-container.appendChild(s)
-}
 }
 
 loadPage()
