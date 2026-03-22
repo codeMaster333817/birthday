@@ -14,45 +14,43 @@ body{
 margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
+overflow:hidden;
 }
 
 /* title */
 .title{
 text-align:center;
-font-size:24px;
-padding:10px 0;
-}
-
-/* 🔥 FLEX FIX */
-.container{
+font-size:22px;
+height:8vh;
 display:flex;
-flex-wrap:wrap;
+align-items:center;
 justify-content:center;
-align-content:space-between;
-height:80vh; /* FULL SPACE USE */
-padding:10px;
 }
 
-/* images */
+/* 🔥 FULL SCREEN GRID */
+.container{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+grid-template-rows:repeat(4, 1fr);
+gap:8px;
+height:82vh;
+padding:8px;
+}
+
+/* images FULL FIT */
 .sticker{
-width:30%;
-height:100px;
-margin:8px;
+width:100%;
+height:100%;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
-transition:0.3s;
+box-shadow:0 6px 12px rgba(0,0,0,0.3);
 }
 
-/* tedha look */
-.sticker:nth-child(1){ transform:rotate(-8deg); }
-.sticker:nth-child(2){ transform:rotate(6deg); }
-.sticker:nth-child(3){ transform:rotate(-5deg); }
-.sticker:nth-child(4){ transform:rotate(7deg); }
-.sticker:nth-child(5){ transform:rotate(-6deg); }
-.sticker:nth-child(6){ transform:rotate(5deg); }
-.sticker:nth-child(7){ transform:rotate(-4deg); }
+/* last image center */
+.sticker:nth-child(7){
+grid-column:1 / span 2;
+}
 
 /* popup */
 .popup{
@@ -69,39 +67,28 @@ justify-content:center;
 
 .popup-box{
 background:white;
-padding:20px;
+padding:18px;
 border-radius:10px;
-font-size:16px;
-width:250px;
+font-size:15px;
+width:240px;
 text-align:center;
 }
 
-/* 🔥 BUTTON BELOW IMAGES */
+/* 🔥 BUTTON FIX */
 .nav{
-text-align:center;
-margin-bottom:10px;
+height:10vh;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
 }
 
 button{
-padding:8px 20px;
-margin:5px;
+padding:8px 18px;
 border:none;
 background:black;
 color:white;
 border-radius:8px;
-}
-
-/* symbols */
-.symbol{
-position:absolute;
-font-size:14px;
-opacity:0.5;
-animation:float 5s linear infinite;
-}
-
-@keyframes float{
-0%{ transform:translateY(0);}
-100%{ transform:translateY(-30px);}
 }
 
 </style>
@@ -158,31 +145,31 @@ let messages=[
 
 let images=[
 [
-"https://picsum.photos/200?1",
-"https://picsum.photos/200?2",
-"https://picsum.photos/200?3",
-"https://picsum.photos/200?4",
-"https://picsum.photos/200?5",
-"https://picsum.photos/200?6",
-"https://picsum.photos/200?7"
+"https://picsum.photos/300?1",
+"https://picsum.photos/300?2",
+"https://picsum.photos/300?3",
+"https://picsum.photos/300?4",
+"https://picsum.photos/300?5",
+"https://picsum.photos/300?6",
+"https://picsum.photos/300?7"
 ],
 [
-"https://picsum.photos/200?11",
-"https://picsum.photos/200?12",
-"https://picsum.photos/200?13",
-"https://picsum.photos/200?14",
-"https://picsum.photos/200?15",
-"https://picsum.photos/200?16",
-"https://picsum.photos/200?17"
+"https://picsum.photos/300?11",
+"https://picsum.photos/300?12",
+"https://picsum.photos/300?13",
+"https://picsum.photos/300?14",
+"https://picsum.photos/300?15",
+"https://picsum.photos/300?16",
+"https://picsum.photos/300?17"
 ],
 [
-"https://picsum.photos/200?21",
-"https://picsum.photos/200?22",
-"https://picsum.photos/200?23",
-"https://picsum.photos/200?24",
-"https://picsum.photos/200?25",
-"https://picsum.photos/200?26",
-"https://picsum.photos/200?27"
+"https://picsum.photos/300?21",
+"https://picsum.photos/300?22",
+"https://picsum.photos/300?23",
+"https://picsum.photos/300?24",
+"https://picsum.photos/300?25",
+"https://picsum.photos/300?26",
+"https://picsum.photos/300?27"
 ]
 ]
 
@@ -197,7 +184,6 @@ img.className="sticker"
 img.onclick=()=>showPopup(msg)
 container.appendChild(img)
 })
-
 }
 
 function showPopup(msg){
