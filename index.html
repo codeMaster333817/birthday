@@ -11,31 +11,27 @@ body{
 margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
-overflow:hidden;
 }
 
 /* title */
 .title{
-position:absolute;
-top:15px;
-left:50%;
-transform:translateX(-50%);
-font-size:42px;
 text-align:center;
+font-size:40px;
+margin-top:15px;
 }
 
-/* container */
+/* container GRID */
 .container{
-position:relative;
-width:100vw;
-min-height:100vh;
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+gap:20px;
+padding:20px;
 }
 
 /* images */
 .sticker{
-position:absolute;
-width:170px;
-height:170px;
+width:100%;
+height:120px;
 object-fit:cover;
 border-radius:15px;
 cursor:pointer;
@@ -44,17 +40,8 @@ transition:0.3s;
 }
 
 .sticker:hover{
-transform:scale(1.1) rotate(3deg);
+transform:scale(1.05);
 }
-
-/* desktop positions */
-.s1{ top:90px; left:80px; }
-.s2{ top:170px; left:420px; }
-.s3{ top:120px; right:260px; }
-.s4{ top:90px; right:80px; }
-.s5{ bottom:160px; left:250px; width:220px; height:160px; }
-.s6{ bottom:130px; right:260px; }
-.s7{ bottom:160px; left:50%; transform:translateX(-50%); }
 
 /* popup */
 .popup{
@@ -71,77 +58,41 @@ justify-content:center;
 
 .popup-box{
 background:white;
-padding:30px;
+padding:25px;
 border-radius:12px;
-font-size:20px;
-width:320px;
+font-size:18px;
+width:280px;
 text-align:center;
 }
 
 /* buttons */
 .nav{
-position:absolute;
-bottom:20px;
-width:100%;
 text-align:center;
+margin:15px;
 }
 
 button{
 padding:10px 20px;
 margin:5px;
 border:none;
-background:#000;
+background:black;
 color:white;
 cursor:pointer;
 border-radius:8px;
 }
 
-/* ✨ floating symbols */
+/* ✨ symbols */
 .symbol{
-position:absolute;
-font-size:20px;
-opacity:0.6;
-pointer-events:none;
+position:fixed;
+font-size:18px;
+opacity:0.5;
 animation:float 6s linear infinite;
+pointer-events:none;
 }
 
 @keyframes float{
-0%{ transform:translateY(0); opacity:0.6;}
-100%{ transform:translateY(-60px); opacity:0;}
-}
-
-/* 📱 MOBILE FIX */
-@media (max-width:768px){
-
-.title{
-font-size:26px;
-top:10px;
-}
-
-/* smaller images */
-.sticker{
-width:110px;
-height:110px;
-}
-
-/* mobile positions */
-.s1{ top:80px; left:15px; }
-.s2{ top:140px; left:120px; }
-.s3{ top:90px; right:15px; }
-.s4{ top:200px; right:30px; }
-.s5{ bottom:200px; left:30px; width:140px; height:100px; }
-.s6{ bottom:160px; right:30px; }
-.s7{ bottom:230px; left:50%; transform:translateX(-50%); }
-
-.popup-box{
-width:260px;
-font-size:18px;
-}
-
-.nav{
-bottom:10px;
-}
-
+0%{ transform:translateY(0);}
+100%{ transform:translateY(-60px);}
 }
 
 </style>
@@ -158,7 +109,6 @@ bottom:10px;
 <button onclick="nextPage()">Next →</button>
 </div>
 
-<!-- popup -->
 <div class="popup" id="popup" onclick="closePopup()">
 <div class="popup-box" id="popupText"></div>
 </div>
@@ -169,7 +119,6 @@ let page=0
 
 let messages=[
 
-// PAGE 1
 [
 "Tu mila to sab change ho gaya 🙂",
 "Tu special hai 💖",
@@ -180,7 +129,6 @@ let messages=[
 "Tu important hai ❤️"
 ],
 
-// PAGE 2
 [
 "Sach bolu 😏",
 "Tu best friend se zyada hai 💭",
@@ -191,7 +139,6 @@ let messages=[
 "Without saying 🫶"
 ],
 
-// PAGE 3
 [
 "Aaj tera din hai 🎂",
 "21 saal ka ho gaya 🎉",
@@ -234,18 +181,15 @@ let images=[
 ]
 ]
 
-let positions=["s1","s2","s3","s4","s5","s6","s7"]
-
 function loadPage(){
 let container=document.getElementById("container")
 container.innerHTML=""
 
-/* images */
 messages[page].forEach((msg,i)=>{
 let img=document.createElement("img")
 
 img.src=images[page][i]
-img.className="sticker "+positions[i]
+img.className="sticker"
 
 img.onclick=()=>showPopup(msg)
 
@@ -255,7 +199,6 @@ container.appendChild(img)
 addSymbols()
 }
 
-/* popup */
 function showPopup(msg){
 document.getElementById("popup").style.display="flex"
 
@@ -267,7 +210,6 @@ function closePopup(){
 document.getElementById("popup").style.display="none"
 }
 
-/* navigation */
 function nextPage(){
 if(page<2){
 page++
@@ -282,22 +224,17 @@ loadPage()
 }
 }
 
-/* ✨ symbols */
+/* symbols */
 function addSymbols(){
-let container=document.getElementById("container")
-
-let icons=["✨","💖","🌙","💫","🎧","🦋","⭐"]
-
-for(let i=0;i<12;i++){
+for(let i=0;i<10;i++){
 let s=document.createElement("div")
 s.className="symbol"
-s.innerHTML=icons[Math.floor(Math.random()*icons.length)]
+s.innerHTML=["✨","💖","🌙","⭐"][Math.floor(Math.random()*4)]
 
 s.style.left=Math.random()*100+"%"
 s.style.top=Math.random()*100+"%"
-s.style.animationDuration=(Math.random()*3+4)+"s"
 
-container.appendChild(s)
+document.body.appendChild(s)
 }
 }
 
