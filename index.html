@@ -19,7 +19,8 @@ box-sizing:border-box;
 body{
 height:100vh;
 display:flex;
-flex-direction:column;  /* 🔥 main fix */
+flex-direction:column;
+overflow:hidden;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
 }
@@ -28,25 +29,24 @@ font-family:'Kalam', cursive;
 .title{
 text-align:center;
 font-size:22px;
-padding:10px;
+padding:8px;
 }
 
 /* 🔥 container auto adjust */
 .container{
-flex:1;  /* 🔥 remaining space लेगा */
+flex:1;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 align-content:space-around;
-padding:5px;
-overflow:hidden;
+padding:4px;
 }
 
-/* images */
+/* 🔥 PERFECT IMAGE SIZE */
 .sticker{
 width:30%;
-height:28%;   /* 🔥 auto adjust (no vh problem) */
-margin:5px;
+height:26%;   /* 👈 FINAL FIX */
+margin:3px;   /* 👈 spacing fix */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
@@ -65,7 +65,7 @@ box-shadow:0 6px 15px rgba(0,0,0,0.3);
 /* buttons */
 .nav{
 text-align:center;
-padding:10px;
+padding:8px;
 }
 
 button{
