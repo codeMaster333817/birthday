@@ -31,13 +31,12 @@ justify-content:center;
 align-content:flex-start;
 height:70vh;
 padding:8px;
+gap:10px;   /* 👈 MAIN GAP FIX */
 }
 
-/* 🔥 IMAGE (gap fix) */
 .sticker{
-width:31%;          /* balance size */
+width:28%;      /* 👈 थोड़ा कम किया ताकि gap दिखे */
 aspect-ratio:1/1;
-margin:20px;         /* 👈 gap increase */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
@@ -165,8 +164,7 @@ let images=[
 "https://picsum.photos/200?24",
 "https://picsum.photos/200?25",
 "https://picsum.photos/200?26",
-"https://picsum.photos/200?27",
-"https://picsum.photos/200?28"
+"https://picsum.photos/200?27"
 ]
 ]
 
