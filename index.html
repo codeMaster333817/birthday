@@ -28,21 +28,19 @@ padding:8px 0;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-align-content:flex-start; /* 👈 FIX */
-height:75vh;              /* 👈 FIX */
+align-content:flex-start;
+height:70vh;     /* 👈 पहले 75vh था → अब कम */
 padding:5px;
 }
-
 /* 🔥 IMAGE SQUARE FIX */
 .sticker{
-width:30%;
-aspect-ratio:1/1;   /* 👈 MAIN FIX */
-margin:6px;
+width:32%;          /* 👈 पहले 30% था → अब bigger */
+aspect-ratio:1/1;
+margin:4px;         /* 👈 gap कम किया → images बड़ी दिखेंगी */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
-transition:0.3s;
 }
 
 /* tedi medi look */
