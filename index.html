@@ -28,31 +28,31 @@ background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper
 /* title */
 .title{
 text-align:center;
-font-size:20px;
-padding:6px;
+font-size:18px;
+padding:5px;
 }
 
-/* 🔥 FIXED GRID */
+/* 🔥 HEIGHT CONTROL HERE */
 .container{
 flex:1;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-grid-template-rows:repeat(3,1fr); /* 3 rows */
-gap:6px;
-padding:6px;
+grid-template-rows:repeat(3,0.85fr); /* 👈 height कम */
+gap:5px;
+padding:5px;
 }
 
-/* 🔥 IMAGE PERFECT FIT */
+/* 🔥 IMAGE SIZE CONTROL */
 .sticker{
 width:100%;
-height:100%;
+height:90%;   /* 👈 FINAL HEIGHT FIX */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* tedi medi feel */
+/* tedi medi look */
 .sticker:nth-child(1){ transform:rotate(-6deg); }
 .sticker:nth-child(2){ transform:rotate(5deg); }
 .sticker:nth-child(3){ transform:rotate(-4deg); }
@@ -61,9 +61,9 @@ box-shadow:0 4px 12px rgba(0,0,0,0.3);
 .sticker:nth-child(6){ transform:rotate(4deg); }
 .sticker:nth-child(7){ transform:rotate(-3deg); }
 
-/* buttons ALWAYS visible */
+/* 🔥 BUTTON ALWAYS VISIBLE */
 .nav{
-height:50px;
+height:45px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -71,7 +71,7 @@ gap:10px;
 }
 
 button{
-padding:8px 16px;
+padding:7px 14px;
 border:none;
 background:black;
 color:white;
@@ -94,11 +94,11 @@ justify-content:center;
 
 .popup-box{
 background:white;
-padding:18px;
+padding:15px;
 border-radius:10px;
-width:240px;
+width:220px;
 text-align:center;
-font-size:15px;
+font-size:14px;
 }
 
 </style>
