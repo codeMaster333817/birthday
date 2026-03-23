@@ -21,55 +21,57 @@ height:100vh;
 display:flex;
 flex-direction:column;
 overflow:hidden;
-background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
+background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 }
 
 /* title */
 .title{
 text-align:center;
-font-size:22px;
-padding:8px;
+font-size:20px;
+padding:6px;
 }
 
-/* 🔥 container auto adjust */
+/* 🔥 FIXED GRID */
 .container{
 flex:1;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-align-content:space-around;
-padding:4px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+grid-template-rows:repeat(3,1fr); /* 3 rows */
+gap:6px;
+padding:6px;
 }
 
-/* 🔥 PERFECT IMAGE SIZE */
+/* 🔥 IMAGE PERFECT FIT */
 .sticker{
-width:30%;
-height:26%;   /* 👈 FINAL FIX */
-margin:3px;   /* 👈 spacing fix */
+width:100%;
+height:100%;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* tedi medi look */
-.sticker:nth-child(1){ transform:rotate(-8deg); }
-.sticker:nth-child(2){ transform:rotate(6deg); }
-.sticker:nth-child(3){ transform:rotate(-5deg); }
-.sticker:nth-child(4){ transform:rotate(7deg); }
-.sticker:nth-child(5){ transform:rotate(-6deg); }
-.sticker:nth-child(6){ transform:rotate(5deg); }
-.sticker:nth-child(7){ transform:rotate(-4deg); }
+/* tedi medi feel */
+.sticker:nth-child(1){ transform:rotate(-6deg); }
+.sticker:nth-child(2){ transform:rotate(5deg); }
+.sticker:nth-child(3){ transform:rotate(-4deg); }
+.sticker:nth-child(4){ transform:rotate(6deg); }
+.sticker:nth-child(5){ transform:rotate(-5deg); }
+.sticker:nth-child(6){ transform:rotate(4deg); }
+.sticker:nth-child(7){ transform:rotate(-3deg); }
 
-/* buttons */
+/* buttons ALWAYS visible */
 .nav{
-text-align:center;
-padding:8px;
+height:50px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
 }
 
 button{
-padding:8px 18px;
+padding:8px 16px;
 border:none;
 background:black;
 color:white;
@@ -94,9 +96,9 @@ justify-content:center;
 background:white;
 padding:18px;
 border-radius:10px;
-font-size:15px;
 width:240px;
 text-align:center;
+font-size:15px;
 }
 
 </style>
