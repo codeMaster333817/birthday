@@ -23,7 +23,6 @@ font-size:22px;
 padding:8px 0;
 }
 
-/* container */
 .container{
 display:flex;
 flex-wrap:wrap;
@@ -31,18 +30,17 @@ justify-content:center;
 align-content:flex-start;
 height:70vh;
 padding:8px;
-gap:5px;   /* 👈 MAIN GAP FIX */
+gap:10px;   /* 👈 GAP ADD */
 }
 
 .sticker{
-width:28%;      /* 👈 थोड़ा कम किया ताकि gap दिखे */
+width:48%;   /* 👈 2 image per row */
 aspect-ratio:1/1;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
 }
-
 /* tedi medi */
 .sticker:nth-child(1){ transform:rotate(-8deg); }
 .sticker:nth-child(2){ transform:rotate(6deg); }
