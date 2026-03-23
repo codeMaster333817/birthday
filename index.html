@@ -23,27 +23,28 @@ font-size:22px;
 padding:8px 0;
 }
 
-/* 🔥 FLEX FIX */
+/* container */
 .container{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 align-content:flex-start;
-height:70vh;     /* 👈 पहले 75vh था → अब कम */
-padding:5px;
+height:70vh;
+padding:8px;
 }
-/* 🔥 IMAGE SQUARE FIX */
+
+/* 🔥 IMAGE (gap fix) */
 .sticker{
-width:32%;          /* 👈 पहले 30% था → अब bigger */
+width:31%;          /* balance size */
 aspect-ratio:1/1;
-margin:4px;         /* 👈 gap कम किया → images बड़ी दिखेंगी */
+margin:6px;         /* 👈 gap increase */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* tedi medi look */
+/* tedi medi */
 .sticker:nth-child(1){ transform:rotate(-8deg); }
 .sticker:nth-child(2){ transform:rotate(6deg); }
 .sticker:nth-child(3){ transform:rotate(-5deg); }
@@ -51,6 +52,21 @@ box-shadow:0 6px 15px rgba(0,0,0,0.3);
 .sticker:nth-child(5){ transform:rotate(-6deg); }
 .sticker:nth-child(6){ transform:rotate(5deg); }
 .sticker:nth-child(7){ transform:rotate(-4deg); }
+
+/* buttons */
+.nav{
+text-align:center;
+margin:5px 0;
+}
+
+button{
+padding:8px 16px;
+margin:5px;
+border:none;
+background:black;
+color:white;
+border-radius:8px;
+}
 
 /* popup */
 .popup{
@@ -74,35 +90,6 @@ width:240px;
 text-align:center;
 }
 
-/* 🔥 BUTTON */
-.nav{
-text-align:center;
-margin-top:0px;
-margin-bottom:5px;   /* 👈 ऊपर shift */
-}
-
-button{
-padding:8px 16px;
-margin:5px;
-border:none;
-background:black;
-color:white;
-border-radius:8px;
-}
-
-/* symbols */
-.symbol{
-position:absolute;
-font-size:14px;
-opacity:0.5;
-animation:float 5s linear infinite;
-}
-
-@keyframes float{
-0%{ transform:translateY(0);}
-100%{ transform:translateY(-30px);}
-}
-
 </style>
 </head>
 
@@ -112,10 +99,7 @@ animation:float 5s linear infinite;
 
 <div class="container" id="container"></div>
 
-<div class="nav">
-<button onclick="prevPage()">Prev</button>
-<button onclick="nextPage()">Next</button>
-</div>
+<div class="nav" id="nav"></div>
 
 <div class="popup" id="popup" onclick="closePopup()">
 <div class="popup-box" id="popupText"></div>
@@ -196,6 +180,28 @@ img.className="sticker"
 img.onclick=()=>showPopup(msg)
 container.appendChild(img)
 })
+
+updateButtons()
+}
+
+/* 🔥 BUTTON LOGIC */
+function updateButtons(){
+let nav=document.getElementById("nav")
+nav.innerHTML=""
+
+if(page>0){
+let prev=document.createElement("button")
+prev.innerText="Prev"
+prev.onclick=prevPage
+nav.appendChild(prev)
+}
+
+if(page<2){
+let next=document.createElement("button")
+next.innerText="Next"
+next.onclick=nextPage
+nav.appendChild(next)
+}
 }
 
 function showPopup(msg){
@@ -209,11 +215,13 @@ document.getElementById("popup").style.display="none"
 }
 
 function nextPage(){
-if(page<2){ page++; loadPage(); }
+page++
+loadPage()
 }
 
 function prevPage(){
-if(page>0){ page--; loadPage(); }
+page--
+loadPage()
 }
 
 loadPage()
