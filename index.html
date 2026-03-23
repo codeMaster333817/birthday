@@ -10,74 +10,49 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-height:100vh;
-display:flex;
-flex-direction:column;
-overflow:hidden;
-font-family:'Kalam', cursive;
+margin:0;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
+font-family:'Kalam', cursive;
 }
 
 /* title */
 .title{
 text-align:center;
-font-size:18px;
+font-size:22px;
+padding:8px 0;
+}
+
+/* 🔥 FLEX FIX */
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-content:flex-start; /* 👈 FIX */
+height:75vh;              /* 👈 FIX */
 padding:5px;
 }
 
-/* 🔥 GRID */
-.container{
-flex:1;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-grid-template-rows:repeat(3,1fr);
-gap:6px;
-padding:6px;
-}
-
-/* 🔥 PERFECT SQUARE IMAGE */
+/* 🔥 IMAGE SQUARE FIX */
 .sticker{
-width:100%;
+width:30%;
 aspect-ratio:1/1;   /* 👈 MAIN FIX */
+margin:6px;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+transition:0.3s;
 }
 
 /* tedi medi look */
-.sticker:nth-child(1){ transform:rotate(-6deg); }
-.sticker:nth-child(2){ transform:rotate(5deg); }
-.sticker:nth-child(3){ transform:rotate(-4deg); }
-.sticker:nth-child(4){ transform:rotate(6deg); }
-.sticker:nth-child(5){ transform:rotate(-5deg); }
-.sticker:nth-child(6){ transform:rotate(4deg); }
-.sticker:nth-child(7){ transform:rotate(-3deg); }
-
-/* buttons */
-.nav{
-height:45px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-}
-
-button{
-padding:7px 14px;
-border:none;
-background:black;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
+.sticker:nth-child(1){ transform:rotate(-8deg); }
+.sticker:nth-child(2){ transform:rotate(6deg); }
+.sticker:nth-child(3){ transform:rotate(-5deg); }
+.sticker:nth-child(4){ transform:rotate(7deg); }
+.sticker:nth-child(5){ transform:rotate(-6deg); }
+.sticker:nth-child(6){ transform:rotate(5deg); }
+.sticker:nth-child(7){ transform:rotate(-4deg); }
 
 /* popup */
 .popup{
@@ -94,11 +69,39 @@ justify-content:center;
 
 .popup-box{
 background:white;
-padding:15px;
+padding:18px;
 border-radius:10px;
-width:220px;
+font-size:15px;
+width:240px;
 text-align:center;
+}
+
+/* 🔥 BUTTON */
+.nav{
+text-align:center;
+margin:5px 0;
+}
+
+button{
+padding:8px 16px;
+margin:5px;
+border:none;
+background:black;
+color:white;
+border-radius:8px;
+}
+
+/* symbols */
+.symbol{
+position:absolute;
 font-size:14px;
+opacity:0.5;
+animation:float 5s linear infinite;
+}
+
+@keyframes float{
+0%{ transform:translateY(0);}
+100%{ transform:translateY(-30px);}
 }
 
 </style>
@@ -219,4 +222,4 @@ loadPage()
 </script>
 
 </body>
-</html>v
+</html>
