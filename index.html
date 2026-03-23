@@ -32,20 +32,20 @@ font-size:18px;
 padding:5px;
 }
 
-/* 🔥 HEIGHT CONTROL HERE */
+/* 🔥 GRID */
 .container{
 flex:1;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-grid-template-rows:repeat(3,0.85fr); /* 👈 height कम */
-gap:5px;
-padding:5px;
+grid-template-rows:repeat(3,1fr);
+gap:6px;
+padding:6px;
 }
 
-/* 🔥 IMAGE SIZE CONTROL */
+/* 🔥 PERFECT SQUARE IMAGE */
 .sticker{
 width:100%;
-aspect-ratio:1/1;   /* 👈 MAGIC LINE (square banata hai) */
+aspect-ratio:1/1;   /* 👈 MAIN FIX */
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
@@ -61,7 +61,7 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 .sticker:nth-child(6){ transform:rotate(4deg); }
 .sticker:nth-child(7){ transform:rotate(-3deg); }
 
-/* 🔥 BUTTON ALWAYS VISIBLE */
+/* buttons */
 .nav{
 height:45px;
 display:flex;
@@ -219,4 +219,4 @@ loadPage()
 </script>
 
 </body>
-</html>
+</html>v
