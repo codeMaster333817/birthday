@@ -18,7 +18,7 @@ box-sizing:border-box;
 
 body{
 height:100vh;
-overflow:hidden; /* ❌ no scroll */
+overflow:hidden;
 background:#f3e9dc url('https://www.transparenttextures.com/patterns/cream-paper.png');
 font-family:'Kalam', cursive;
 }
@@ -33,20 +33,20 @@ align-items:center;
 justify-content:center;
 }
 
-/* 🔥 FIXED CONTAINER */
+/* container */
 .container{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-align-content:space-around; /* gap remove */
-height:84vh;
+align-content:space-around;
+height:80vh;  /* थोड़ा कम ताकि button दिखे */
 padding:5px;
 }
 
-/* 🔥 IMAGE FIX */
+/* images */
 .sticker{
 width:30%;
-height:22vh;   /* 🔥 screen ke hisab se auto fit */
+height:19vh;  /* 🔥 perfect fit */
 margin:5px;
 object-fit:cover;
 border-radius:12px;
@@ -65,7 +65,7 @@ box-shadow:0 6px 15px rgba(0,0,0,0.3);
 
 /* buttons */
 .nav{
-height:8vh;
+height:12vh;
 display:flex;
 justify-content:center;
 align-items:center;
