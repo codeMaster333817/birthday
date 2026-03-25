@@ -36,13 +36,17 @@ gap:10px;
 
 /* 🔥 IMAGE (gap fix) */
 .sticker{
-width:31%;          /* balance size */
+width:31%;
 aspect-ratio:1/1;
-margin:10px;         /* 👈 gap increase */
+margin:10px;
 object-fit:cover;
 border-radius:12px;
 cursor:pointer;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
+
+/* 👇 NEW STYLE */
+background:#ffffff;
+padding:6px;
+box-shadow:0 6px 15px rgba(0,0,0,0.25);
 }
 
 /* tedi medi */
@@ -76,21 +80,21 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(255, 182, 193, 0.4); /* light pink */
-backdrop-filter: blur(8px);
+background:rgba(0,0,0,0.6);   /* 👈 dark overlay */
+backdrop-filter: blur(6px);
 display:none;
 align-items:center;
 justify-content:center;
 }
 
 .popup-box{
-background:linear-gradient(135deg, #ffffff, #ffe4ec);
+background:#ffffff;
 padding:20px;
 border-radius:15px;
 font-size:16px;
 width:260px;
 text-align:center;
-box-shadow:0 8px 25px rgba(0,0,0,0.3);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
   
 </style>
